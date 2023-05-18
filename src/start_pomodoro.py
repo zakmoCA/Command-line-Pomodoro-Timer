@@ -1,53 +1,17 @@
-import unittest
-import math
-import argparse
-import time
+import pomodoro_length
 import datetime
+import run_pomodoro
 import csv
-import playsound
-import plyer
 
-
-
-import time
-
-def countdown(t):
-    while t:
-        mins, secs = divmod(t, 60)
-        timer = '{:02d}:{:02d}'.format(mins, secs)
-        print(timer, end="\r")
-        time.sleep(1)
-        t -= 1
-
-def pomodoro_length():
-    while True:
-        work_time_in_minutes = input('Enter how many minutes you would like to work?: ')
-        break_time_in_minutes = input('Enter how many minutes you would like to rest?: ')
-
-        if not work_time_in_minutes.isdigit() or not break_time_in_minutes.isdigit():
-            print("Invalid input, please enter time in minutes")
-        else:
-            work_time = int(work_time_in_minutes)
-            break_time = int(break_time_in_minutes)
-
-            # Return the work and break times for future reference
-            return work_time, break_time
-
-def run_pomodoro(work_time, break_time):
-    print("Work timer started for", work_time, "minutes")
-    countdown(work_time * 60)
-
-    print("\nBreak timer started for", break_time, "minutes")
-    countdown(break_time * 60)
 
 pomodoros = []
 tasks = []
 
 
-def start_pomodoro():
+def start():
     try:
         task_name = input('Enter the name of the task this pomodoro is for: ')
-        work_time, break_time = pomodoro_length()  # my pomodoro as defined by pomodoro_length()
+        work_time, break_time = pomodoro_length.pomodoro_length()  # my pomodoro as defined by pomodoro_length()
 
         pomodoro = {
             'start_time': datetime.datetime.now(),
@@ -79,7 +43,7 @@ def start_pomodoro():
             writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
 
         # Now start the timer
-        run_pomodoro(work_time, break_time)
+        run_pomodoro.run_pomodoro(work_time, break_time)
     except KeyboardInterrupt:
         print("\nInterrupted. Writing current pomodoro to file...")
         # Now, write the pomodoro to a CSV file
@@ -87,6 +51,3 @@ def start_pomodoro():
             writer = csv.writer(file)
             writer.writerow([task_name, pomodoro['start_time'], datetime.datetime.now(), pomodoro['duration']])
 
-
-
-start_pomodoro()
