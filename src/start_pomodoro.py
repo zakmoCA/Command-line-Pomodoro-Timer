@@ -2,6 +2,7 @@ import pomodoro_length
 import datetime
 import run_pomodoro
 import csv
+import os
 
 
 pomodoros = []
@@ -36,10 +37,22 @@ def start():
                 'pomodoros': [pomodoro],
             }
             tasks.append(task)
+        
+        # WRITING TO CSV
+        headers = ['Task Name', 'Start Time', 'End Time', 'Duration']
+
+        # Check if the CSV file already exists
+        file_exists = os.path.isfile('pomodoros.csv')
 
         # Now, write the pomodoro to a CSV file
         with open('pomodoros.csv', 'a', newline='') as file:
             writer = csv.writer(file)
+            
+            # Write headers only if the file doesn't exist yet
+            if not file_exists:
+                writer.writerow(headers)
+            
+            # Else write the pomodoro data
             writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
 
         # Now start the timer
@@ -50,9 +63,21 @@ def start():
     except KeyboardInterrupt:
         print("\nInterrupted. Writing current pomodoro to file...")
         # Now, write the pomodoro to a CSV file
+        headers = ['Task Name', 'Start Time', 'End Time', 'Duration']
+
+        # Check if the CSV file already exists
+        file_exists = os.path.isfile('pomodoros.csv')
+
+        # Now, write the pomodoro to a CSV file
         with open('pomodoros.csv', 'a', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow([task_name, pomodoro['start_time'], datetime.datetime.now(), pomodoro['duration']])
+            
+            # Write headers only if the file doesn't exist yet
+            if not file_exists:
+                writer.writerow(headers)
+            
+            # Else write the pomodoro data
+            writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
         
         
 
