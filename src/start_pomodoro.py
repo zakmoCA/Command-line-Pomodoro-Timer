@@ -44,10 +44,15 @@ def start():
 
         # Now start the timer
         run_pomodoro.run_pomodoro(work_time, break_time)
+
+        
+    
     except KeyboardInterrupt:
         print("\nInterrupted. Writing current pomodoro to file...")
         # Now, write the pomodoro to a CSV file
         with open('pomodoros.csv', 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([task_name, pomodoro['start_time'], datetime.datetime.now(), pomodoro['duration']])
+        
+        
 
