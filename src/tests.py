@@ -38,12 +38,13 @@ class TestPomodoroApp(unittest.TestCase):
         # Get all calls to write
         write_calls = mock_open().write.call_args_list
 
-        # The first call should be writing the headers, let's check the first call
+        # The first call should be writing the headers
         call_args = write_calls[0][0][0]
         print(call_args)
+        # Check that first call writes headers, or statement for checking newline characters in unix-based systems vs windows
         self.assertTrue(call_args == 'Task Name,Start Time,End Time,Duration\n' or call_args == 'Task Name,Start Time,End Time,Duration\r\n')
 
-        # The second call should be writing the pomodoro, let's check that
+        # The second call should be writing the pomodoro
         call_args = write_calls[1][0][0]
         self.assertTrue(call_args.startswith('test_task,'))
         self.assertTrue(call_args.endswith('\n'))
