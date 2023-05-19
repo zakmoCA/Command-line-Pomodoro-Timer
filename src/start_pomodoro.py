@@ -51,9 +51,10 @@ def start():
             # Write headers only if the file doesn't exist yet
             if not file_exists:
                 writer.writerow(headers)
-            
-            # Else write the pomodoro data
-            writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
+                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
+            else:
+                # Else write the pomodoro data
+                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
 
         # Now start the timer
         run_pomodoro.run_pomodoro(work_time, break_time)
@@ -75,9 +76,10 @@ def start():
             # Write headers only if the file doesn't exist yet
             if not file_exists:
                 writer.writerow(headers)
-            
-            # Else write the pomodoro data
-            writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
+                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
+            else:
+                # Else write the pomodoro data
+                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
         
         
 

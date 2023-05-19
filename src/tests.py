@@ -24,24 +24,28 @@ class TestPomodoroApp(unittest.TestCase):
     @patch('start_pomodoro.run_pomodoro')
     @patch('builtins.input')
     @patch('builtins.open', new_callable=mock_open)
-    def test_write_pomodoro_to_csv(self, mock_open, input_mock, run_pomodoro_mock):
+    @patch('os.path.isfile')
+    def test_write_pomodoro_to_csv(self, isfile_mock, mock_open, input_mock, run_pomodoro_mock):
         # Define the behavior of the mocks
         input_mock.side_effect = ['test_task', '25', '5']
         run_pomodoro_mock.return_value = None
+        isfile_mock.return_value = False  # mock isfile should return False, to simulate non-existent csv file (first pomodoro) 
+
 
         # Call the function to test
         start()
 
-        # Check that the write method of the mock file object was called once
-        # If it's not called or called more than once this will raise an error (AssertionError) 
-        mock_open().write.assert_called_once()
-        # Get the arguments that were passed to the 'write' method. call_args is a tuple ((positional args), {keyword dictionary})
-        # String that was written to file is a positional arg, and only arg in that tuple
-        # Can isolate the string by accessing first and only index of the tuple 
-        call_args = mock_open().write.call_args[0][0]
-        # Assert that the written string starts with our task name
+        # Get all calls to write
+        write_calls = mock_open().write.call_args_list
+
+        # The first call should be writing the headers, let's check the first call
+        call_args = write_calls[0][0][0]
+        print(call_args)
+        self.assertTrue(call_args == 'Task Name,Start Time,End Time,Duration\n' or call_args == 'Task Name,Start Time,End Time,Duration\r\n')
+
+        # The second call should be writing the pomodoro, let's check that
+        call_args = write_calls[1][0][0]
         self.assertTrue(call_args.startswith('test_task,'))
-        # Assert that the string ends with a newline character
         self.assertTrue(call_args.endswith('\n'))
         
 
