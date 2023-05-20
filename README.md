@@ -12,15 +12,14 @@
     2. [Project Management](#project-management)
     3. [Priorities and Deadlines](#priorities-and-deadlines)
 6. [App Features](#app-features) 
-    1. [Feature 1](#feature1)
-    2. [Feature 2](#feature2)
-    3. [Feature 3](#feature3)
-    4. [Feature 4](#feature4)
-    5. [Feature 5](#feature5)
-7. [Help Documentation](#help-documentation)
-    1. [Installaiton Steps](#installation-steps)
+    1. [Set Work/Break Times](#set-work-and-break-times-for-timer)
+    2. [Assign Tasks](#assign-pomodoro-to-specific-tasks)
+    3. [Write to CSV](#write-pomodoro-data-to-file)
+7. [Tests](#tests) 
+8. [Help Documentation](#help-documentation)
+    1. [System And Hardware Requirements](#system-and-hardware-requirements)
     2. [Dependencies](#dependencies)
-    3. [System And Hardware Requirements](#system-and-hardware-requirements)
+    3. [Installaiton Steps](#installation-steps)
 
 
 # Sources
@@ -77,11 +76,11 @@ Doing the above things allows me to complete the core functionality of my comman
 
 # App Features
 
-## Choose Pomodoro work/break times for timer
+## Set work and break times for timer
 
 The Pomodoro technique is a popular time management technique. It involves picking a task, and setting a 'pomodoro' timer and working on the task, the timer is traditionally for 25 minutes, followed by a 5 minute break. The end of the work and break periods are signified by a sound as is the case with timers, and pomodoro applications typically also provide alerts. My application prompts the user to enter their desired work time and break time in minutes, and then starts the timer.
 
-## Assign Pomodoro's to specific 'tasks'
+## Assign Pomodoro to specific tasks
 
 The application prompts the user to enter a 'task' for their pomodoro. This task name can then be used for statistics purposes in the data visualisation aspect of the application ie. how many pomodoros did I complete for task x this week?
 
@@ -155,28 +154,77 @@ Like other command-line programs, the user can also abort this program using 'Ct
 
 This allows us to integrate the KeyboardInterrupt into our application by ensuring the pomodoro data is still recorded should the user want to abort the program.
 
-### First Test: Timer Functionality
+# Tests
+
+## Timer Functionality Test
 ![Test 1: Timer Funcitonality](/docs/first-test.png)
 
 
-### Second Test: Writing To CSV
+## Writing To CSV Test
 ![Test 2: File Writing](/docs/second-test.png)
 
 
 
 
 
-## Project Management Workflow
+
+
 
 
 # Help Documentation
-
-## Installation Steps
-
-
+## System And Hardware Requirements
+This is a very simple application, with any computer or laptop running Python 3 being able to run the application. Python 3 needs to be installed if not already.
 
 ## Dependencies
 
 
 
-## System And Hardware Requirements
+## Installation Steps
+
+### Python Version
+The first step is to check which python version, if any, is on your system. Many operating systems have at least Python 2 installed, but this application requires a Python 3 version of 3.11.3 and higher. This can be checked by opening the Terminal (Command Line) and typing the following command:
+
+    python3 --version
+
+If you don't have Python 3.11.3 installed, it can be installed at the official [Python website](https://www.python.org/downloads/)
+You can also install it in the terminal as follows:
+
+#### macOS
+Open up Homebrew in your terminal and enter the following command:
+
+    brew install python
+
+#### Ubuntu
+
+    sudo apt-get install python3.11
+
+#### Windows
+Visit official [Python website](https://www.python.org/downloads/)
+
+
+
+
+If you have Python version 3.11.3 or higher already installed, in your terminal, make a new directory in a location of your choosing and name of your choosing, I am calling mine 'PomodoroApp'.
+
+    mkdir PomodoroApp
+
+Inside this directory, run the following command in order to clone the GitHub Pomodro Application.
+
+    git clone git@github.com:zakmoCA/ZakeriyaMohamed_T1A3.git
+
+Once the repository has been cloned locally to your machine, enter the following command in the root directory of the repository, it will add the appropriate execute persmissions.
+
+    chmod +x setup.sh
+
+Finally, to run the application, proceed by entering the following command.
+
+    ./setup.sh
+
+
+
+
+
+
+
+
+
