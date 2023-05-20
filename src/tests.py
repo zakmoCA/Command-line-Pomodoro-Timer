@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import patch, mock_open
 from pomodoro_length import pomodoro_length
-from run_pomodoro import run_pomodoro
 from start_pomodoro import start
 
 

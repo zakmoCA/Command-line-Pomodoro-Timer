@@ -108,13 +108,13 @@ The first feature was the timer functionality. It would involve:
 - Handling exceptions
 
 The design of this feature involved a high level overview of what processes would be needed, and then a step by step;
-- user input 
-- way to display user input as a countdown timer
+- User input 
+- Way to display user input as a countdown timer
 
 Step by step this would require:
-1. getting appropriate user input, by ensuring the user entered only digits
-2. converting this user input to integer type
-3. using either control flow or exception handling to ensure the program (feature) runs until appropriate input has been attained
+1. Getting appropriate user input, by ensuring the user entered only digits
+2. Converting this user input to integer type
+3. Using either control flow or exception handling to ensure the program (feature) runs until appropriate input has been attained
 
 The functionality for this feature is provided by the run_pomodoro.py and pomodoro_length.py modules, although it is executed by the start function in start_pomodoro.py. Code below.
 ![pomodoro_length.py]()
@@ -124,8 +124,36 @@ The functionality for this feature is provided by the run_pomodoro.py and pomodo
 ### Feature 2: Set Task
 ![Feature 2 - Set Task](/docs/set-task-plan.png)
 
+The second feature allows the user to allocate the pomodoro to a 'task'. This is achieved by getting user input for the task name. 
+Potential inappropriate user input is handled using a while loop:
+- User is asked to enter task name
+- Program exits while loop and asks user for timer settings
+- If no user input is recorded the program continues running and user is told that they they must enter a task name, and prompted again
+
+The 'task' is then appended to the 'tasks' list as a dictionary, which holds the task name (string) and pomodoro data (list of dictionaries) with the keys 'name' and 'pomodoros' respectively. If the task name entered for a pomodoro already exists in our list, the pomodoro data is appended to that task's list of 'pomodoros', else a new task dictionary is created with the current tasks name and pomodoro data.
+
+
 ### Feature 3: Write To CSV
 ![Feature 3 - Write To CSV](/docs/write-csv-plan.png)
+
+The third feature of this application involves writing the data for each pomodoro to a CSV file, allowing this information to be stored and accessed later, or manipulated using data visualisation tools. This feature required:
+- Access to the file system to check for the existence of the data file, and also create the file if it doesn't already exist
+- Ability to append new data to the file, without erasing or modifying the existing data
+- Handling exceptions, Python's built-in 'csv' and 'open' libraries were used to achieve this
+
+A high level overview of the steps this would require:
+1. Checking (once pomodoro finishes) if the CSV file ('pomodoros.csv') already exists in the current directory using os.path.isfile() function
+2. Opening the file in append mode if it doesn't exist vs creating it if it does exist
+3. If file is new, writing the headers 'Task Name', 'Start Time', 'End Time', and 'Duration'
+4. Writing the pomodoro data corresponding to the above headers to the file
+5. Close the file once finished 
+
+Like other command-line programs, the user can also abort this program using 'Ctrl/Cmd' + 'C'. We still want to record the pomodoro data should this occur, so the start function which executes the application is wrapped in a try/except block, with the exception being a KeyboardInterrupt.
+- When the start function first runs the user is asked to enter timer settings
+- It then enters a 'try' block where the pomodoro cycle commences, continuously monitoring for a KeyboardInterrupt exception
+- Should the user enter 'Ctrl/Cmd' + 'C', the program enters the 'except' block which handles our file writing before the program ends
+
+This allows us to integrate the KeyboardInterrupt into our application by ensuring the pomodoro data is still recorded should the user want to abort the program.
 
 ### First Test: Timer Functionality
 ![Test 1: Timer Funcitonality](/docs/first-test.png)

@@ -11,7 +11,12 @@ tasks = []
 
 def start():
     try:
-        task_name = input('Enter the name of the task this pomodoro is for: ')
+        while True:
+          task_name = input('Enter the name of the task this pomodoro is for: ')
+          if task_name:
+              break
+          else:
+              print("You must enter a task name. Please try again.")
         work_time, break_time = pomodoro_length.pomodoro_length()  # my pomodoro as defined by pomodoro_length()
 
         pomodoro = {
@@ -75,7 +80,7 @@ def start():
             
             # Write headers only if the file doesn't exist yet
             if not file_exists:
-                writer.writerow(headers)
+                writer.writerow
                 writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
             else:
                 # Else write the pomodoro data
