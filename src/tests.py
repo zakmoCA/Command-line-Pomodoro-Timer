@@ -16,10 +16,8 @@ class TestPomodoroApp(unittest.TestCase):
     My second test checks that my start funciton correctly writes something to csv.
     I can't check the exact timestamps are 'corect' because assert_called_once_with doesn't support regex
     But I am happy in checking that;
-      > the csv write method is called only once
-      > the string that the write method is called with starts with the task name followed
-        by a comma
-      > the string ends with a newline character
+      > the headers and pomodoro are written correctly
+      > the string that the write method is called with starts with the task name, and has the structure we expect
     """
     @patch('start_pomodoro.run_pomodoro')
     @patch('builtins.input')
