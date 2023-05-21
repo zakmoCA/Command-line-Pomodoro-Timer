@@ -1,34 +1,34 @@
-# [My App Repo (GitHub)]()
+# [My App Repo (GitHub)](https://github.com/zakmoCA/ZakeriyaMohamed_T1A3)
 # [My Project Management (Trello)](https://trello.com/invite/b/0EUM1gBZ/ATTIe34c9fe163d3046c50de67b75f7ade7735039F3D/t1a3)
+# [My Presentation](https://youtu.be/t4V7LLq0rW8)
 
 # Table of Contents
 
 1. [Sources](#sources)
 2. [Style Guide](#style-guide)
-3. [Purpose and Target Audience](#purpose-and-target-audience)
-4. [Implementation Plan](#implementation-plan)
+3. [Implementation Plan](#implementation-plan)
     1. [Outline](#outline)
     2. [Project Management](#project-management)
     3. [Priorities and Deadlines](#priorities-and-deadlines)
-5. [App Features](#app-features) 
+4. [App Features](#app-features) 
     1. [Set Cycle Length](#set-cycle-length)
     2. [Set Work/Break Times](#set-work-and-break-times-for-pomodoro-timer)
     3. [Assign Tasks](#assign-pomodoro-to-specific-tasks)
     4. [Write to CSV](#write-pomodoro-data-to-file)
     5. [Alerts](#alert-when-workbreak-times-are-over)
-6. [Features and Checklist Items](#features-and-checklist-items)
+5. [Features and Checklist Items](#features-and-checklist-items)
     1. [Feature 1: Set Cycle Length](#feature-1-set-cycle-length)
     2. [Feature 2: Set Work And Break Times](#feature-2-set-work-and-break-times)
     3. [Feature 3: Set Task Name](#feature-3-set-task)
     4. [Feature 4: Write To CSV](#feature-4-write-to-csv)
     5. [Feature 5: Alerts](#feature-5-alerts-for-start-of-work-and-break-times)
-7. [Tests](#tests) 
+6. [Tests](#tests) 
     1. [Timer Functionality Test Checklist](#timer-functionality-test-checklist)
     2. [Writing To CSV Test Checklist](#writing-to-csv-test-checklist)
     3. [Dependencies](#dependencies)
     4. [Timer Functionality Test](#timer-functionality-test)
     5. [File Writing Test (CSV)](#writing-to-csv-test)
-8. [Help Documentation](#help-documentation)
+7. [Help Documentation](#help-documentation)
     1. [System And Hardware Requirements](#system-and-hardware-requirements)
     2. [Dependencies](#dependencies)
     3. [Installaiton Steps](#installation-steps)
@@ -60,9 +60,6 @@
 # Style Guide
 
 The style guide I will be following for this project is PEP 8.
-
-# Purpose and Target Audience
-
 
 # Implementation Plan
 
@@ -109,7 +106,7 @@ As usual, the more urgent tasks were colour coded orange in my Trello board.
 
 
 ### Final Day Trello Board
-![Project Board end of final day]()
+![Project Board end of final day](/docs/final-day-board.png)
 
 
 ## Priorities and Deadlines
@@ -339,6 +336,8 @@ Once the repository has been cloned locally to your machine, enter the following
 Finally, to run the application, proceed by entering the following command.
 
     ./setup.sh
+
+To exit the pomodoro early simply use 'Ctrl/Cmd' + 'C'. The data will still be written to the csv file.
 
 
 
