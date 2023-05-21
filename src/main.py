@@ -1,4 +1,4 @@
-import start_pomodoro
+from start_pomodoro import start
 
-
-start_pomodoro.start()
+# Run application
+start()

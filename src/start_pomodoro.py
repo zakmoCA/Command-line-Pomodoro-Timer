@@ -1,8 +1,8 @@
 from pomodoro_length import pomodoro_length 
 import datetime
 from run_pomodoro import run_pomodoro
-import csv
-import os
+from write_to_csv import write_to_csv
+
 
 
 pomodoros = []
@@ -44,24 +44,9 @@ def start():
             tasks.append(task)
         
         # WRITING TO CSV
-        headers = ['Task Name', 'Start Time', 'End Time', 'Duration']
+        write_to_csv(task_name, pomodoro)
 
-        # Check if the CSV file already exists
-        file_exists = os.path.isfile('pomodoros.csv')
-
-        # Now, write the pomodoro to a CSV file
-        with open('pomodoros.csv', 'a', newline='') as file:
-            writer = csv.writer(file)
-            
-            # Write headers only if the file doesn't exist yet
-            if not file_exists:
-                writer.writerow(headers)
-                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], f"{pomodoro['duration']} min"])
-            else:
-                # Else write the pomodoro data
-                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], f"{pomodoro['duration']} min"])
-        
-        # Now start the timer
+        # Start the timer
         run_pomodoro(cycle_length, work_time, short_break_time, long_break_time)
 
         
@@ -69,20 +54,5 @@ def start():
     except KeyboardInterrupt:
         print("\nInterrupted. Writing current pomodoro to file...")
         # Now, write the pomodoro to a CSV file
-        headers = ['Task Name', 'Start Time', 'End Time', 'Duration']
-
-        # Check if the CSV file already exists
-        file_exists = os.path.isfile('pomodoros.csv')
-
-        # Now, write the pomodoro to a CSV file
-        with open('pomodoros.csv', 'a', newline='') as file:
-            writer = csv.writer(file)
-            
-            # Write headers only if the file doesn't exist yet
-            if not file_exists:
-                writer.writerow
-                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], f"{pomodoro['duration']} min"])
-            else:
-                # Else write the pomodoro data
-                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], f"{pomodoro['duration']} min"])
+        write_to_csv(task_name, pomodoro)
 

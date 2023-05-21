@@ -2,7 +2,7 @@ import time
 from playsound import playsound 
 import os
 
-# Create absolute path for my audio files since my bash script is not in this directory
+# Need absolute path for my audio files since my bash script is not in this directory
 AUDIO_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 

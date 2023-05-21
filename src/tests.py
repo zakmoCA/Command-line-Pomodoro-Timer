@@ -9,10 +9,10 @@ class TestPomodoroApp(unittest.TestCase):
     def test_pomodoro_length(self):
         with patch('builtins.input', side_effect=['4', '25', '5', '15']):
             cycle_length, work_time, short_break_time, long_break_time = pomodoro_length()
-            self.assertEqual(cycle_length, 4)
-            self.assertEqual(work_time, 25)
-            self.assertEqual(short_break_time, 5)
-            self.assertEqual(long_break_time, 15)
+            self.assertEqual(cycle_length, 4) # checking if cycle_length is correct
+            self.assertEqual(work_time, 25) # checking if work_time is correct
+            self.assertEqual(short_break_time, 5) # checking if short_break_time is correct
+            self.assertEqual(long_break_time, 15) # checking if long_break_time is correct
     """"
     My second test checks that my start funciton correctly writes something to csv.
     I can't check the exact timestamps are 'corect' because assert_called_once_with doesn't support regex
