@@ -100,7 +100,7 @@ As usual, the more urgent tasks were colour coded orange in my Trello board.
 
 
 ### Day 3 Trello Board
-![Project Board end of final day]()
+![Project Board end of day 3](/docs/end-of-day3.png)
 
 ### End of Final Day
 
