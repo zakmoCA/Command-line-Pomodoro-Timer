@@ -39,7 +39,6 @@ class TestPomodoroApp(unittest.TestCase):
 
         # The first call should be writing the headers
         call_args = write_calls[0][0][0]
-        print(call_args)
         # Check that first call writes headers, or statement for checking newline characters in unix-based systems vs windows
         self.assertTrue(call_args == 'Task Name,Start Time,End Time,Duration\n' or call_args == 'Task Name,Start Time,End Time,Duration\r\n')
 
