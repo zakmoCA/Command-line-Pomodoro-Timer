@@ -1,6 +1,6 @@
-import pomodoro_length
+from pomodoro_length import pomodoro_length 
 import datetime
-import run_pomodoro
+from run_pomodoro import run_pomodoro
 import csv
 import os
 
@@ -17,11 +17,11 @@ def start():
               break
           else:
               print("You must enter a task name. Please try again.")
-        work_time, break_time = pomodoro_length.pomodoro_length()  # my pomodoro as defined by pomodoro_length()
+        cycle_length, work_time, short_break_time, long_break_time = pomodoro_length()  # my pomodoro as defined by pomodoro_length()
 
         pomodoro = {
-            'start_time': datetime.datetime.now(),
-            'end_time': datetime.datetime.now() + datetime.timedelta(minutes=work_time),
+            'start_time': datetime.datetime.now().replace(microsecond=0),
+            'end_time': datetime.datetime.now().replace(microsecond=0) + datetime.timedelta(minutes=work_time),
             'duration': work_time,
             'task': task_name,
         }
@@ -56,13 +56,13 @@ def start():
             # Write headers only if the file doesn't exist yet
             if not file_exists:
                 writer.writerow(headers)
-                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
+                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], f"{pomodoro['duration']} min"])
             else:
                 # Else write the pomodoro data
-                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
-
+                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], f"{pomodoro['duration']} min"])
+        
         # Now start the timer
-        run_pomodoro.run_pomodoro(work_time, break_time)
+        run_pomodoro(cycle_length, work_time, short_break_time, long_break_time)
 
         
     
@@ -81,10 +81,8 @@ def start():
             # Write headers only if the file doesn't exist yet
             if not file_exists:
                 writer.writerow
-                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
+                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], f"{pomodoro['duration']} min"])
             else:
                 # Else write the pomodoro data
-                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], pomodoro['duration']])
-        
-        
+                writer.writerow([task_name, pomodoro['start_time'], pomodoro['end_time'], f"{pomodoro['duration']} min"])
 

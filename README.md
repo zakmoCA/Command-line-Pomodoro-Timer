@@ -12,11 +12,19 @@
     2. [Project Management](#project-management)
     3. [Priorities and Deadlines](#priorities-and-deadlines)
 6. [App Features](#app-features) 
-    1. [Set Work/Break Times](#set-work-and-break-times-for-timer)
-    2. [Assign Tasks](#assign-pomodoro-to-specific-tasks)
-    3. [Write to CSV](#write-pomodoro-data-to-file)
-7. [Tests](#tests) 
-8. [Help Documentation](#help-documentation)
+    1. [Set Cycle Length](#set-cycle-length)
+    2. [Set Work/Break Times](#set-work-and-break-times-for-pomodoro-timer)
+    3. [Assign Tasks](#assign-pomodoro-to-specific-tasks)
+    4. [Write to CSV](#write-pomodoro-data-to-file)
+    5. [Alerts](#alert-when-workbreak-times-are-over)
+7. [Features and Checklist Items](#features-and-checklist-items)
+    1. [Feature 1: Set Cycle Length](#feature-1-set-cycle-length)
+    2. [Feature 2: Set Work And Break Times](#feature-2-set-work-and-break-times)
+    3. [Feature 3: Set Task Name](#feature-3-set-task)
+    4. [Feature 4: Write To CSV](#feature-4-write-to-csv)
+    5. [Feature 5: Alerts](#feature-5-alerts-for-start-of-work-and-break-times)
+8. [Tests](#tests) 
+9. [Help Documentation](#help-documentation)
     1. [System And Hardware Requirements](#system-and-hardware-requirements)
     2. [Dependencies](#dependencies)
     3. [Installaiton Steps](#installation-steps)
@@ -63,6 +71,7 @@ My initial projections for deadlines were not met, as I was running a little lat
 ### End of Third Day
 
 ### Day 3 Trello Board
+![Project Board end of day 3](/docs/end-of-day3.png)
 
 
 ## Priorities and Deadlines
@@ -76,7 +85,9 @@ Doing the above things allows me to complete the core functionality of my comman
 
 # App Features
 
-## Set work and break times for timer
+## Set Cycle Length
+
+## Set Work And Break Times For Pomodoro Timer
 
 The Pomodoro technique is a popular time management technique. It involves picking a task, and setting a 'pomodoro' timer and working on the task, the timer is traditionally for 25 minutes, followed by a 5 minute break. The end of the work and break periods are signified by a sound as is the case with timers, and pomodoro applications typically also provide alerts. My application prompts the user to enter their desired work time and break time in minutes, and then starts the timer.
 
@@ -97,9 +108,12 @@ The pomodoro's task name, start time, end time, and duration are written to a CS
 
 
 
-## Features & Checklist Items
-### Feature 1: Set Work and Break Times
-![Feature 1 - Set Timer](/docs/set-pomodoro-timer-plan.png)
+## Features and Checklist Items
+### Feature 1: Set Cycle Length
+![Feature 1 - Set Cycle Length](/docs/set-cycle-length.png)
+
+### Feature 2: Set Work and Break Times
+![Feature 2 - Set Timer](/docs/set-pomodoro-timer-plan.png)
 
 The first feature was the timer functionality. It would involve:
 - Getting user input for determining the length of the work and break times
@@ -120,8 +134,8 @@ The functionality for this feature is provided by the run_pomodoro.py and pomodo
 ![run_pomodoro.py]()
 ![start_pomodoro.py]()
 
-### Feature 2: Set Task
-![Feature 2 - Set Task](/docs/set-task-plan.png)
+### Feature 3: Set Task
+![Feature 3 - Set Task](/docs/set-task-plan.png)
 
 The second feature allows the user to allocate the pomodoro to a 'task'. This is achieved by getting user input for the task name. 
 Potential inappropriate user input is handled using a while loop:
@@ -132,8 +146,8 @@ Potential inappropriate user input is handled using a while loop:
 The 'task' is then appended to the 'tasks' list as a dictionary, which holds the task name (string) and pomodoro data (list of dictionaries) with the keys 'name' and 'pomodoros' respectively. If the task name entered for a pomodoro already exists in our list, the pomodoro data is appended to that task's list of 'pomodoros', else a new task dictionary is created with the current tasks name and pomodoro data.
 
 
-### Feature 3: Write To CSV
-![Feature 3 - Write To CSV](/docs/write-csv-plan.png)
+### Feature 4: Write To CSV
+![Feature 4 - Write To CSV](/docs/write-csv-plan.png)
 
 The third feature of this application involves writing the data for each pomodoro to a CSV file, allowing this information to be stored and accessed later, or manipulated using data visualisation tools. This feature required:
 - Access to the file system to check for the existence of the data file, and also create the file if it doesn't already exist
@@ -153,6 +167,11 @@ Like other command-line programs, the user can also abort this program using 'Ct
 - Should the user enter 'Ctrl/Cmd' + 'C', the program enters the 'except' block which handles our file writing before the program ends
 
 This allows us to integrate the KeyboardInterrupt into our application by ensuring the pomodoro data is still recorded should the user want to abort the program.
+
+### Feature 5: Alerts For Start of Work And Break Times
+![Feature 5 - Alerts for start of work and break times](/docs/alerts.png)
+
+
 
 # Tests
 

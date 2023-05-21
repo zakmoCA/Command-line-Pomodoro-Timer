@@ -7,10 +7,12 @@ from start_pomodoro import start
 class TestPomodoroApp(unittest.TestCase):
     # test that my pomodoro_length function correctly handles user input
     def test_pomodoro_length(self):
-        with patch('builtins.input', side_effect=['25', '5']):
-            work_time, break_time = pomodoro_length()
+        with patch('builtins.input', side_effect=['4', '25', '5', '15']):
+            cycle_length, work_time, short_break_time, long_break_time = pomodoro_length()
+            self.assertEqual(cycle_length, 4)
             self.assertEqual(work_time, 25)
-            self.assertEqual(break_time, 5)
+            self.assertEqual(short_break_time, 5)
+            self.assertEqual(long_break_time, 15)
     """"
     My second test checks that my start funciton correctly writes something to csv.
     I can't check the exact timestamps are 'corect' because assert_called_once_with doesn't support regex
@@ -24,7 +26,7 @@ class TestPomodoroApp(unittest.TestCase):
     @patch('os.path.isfile')
     def test_write_pomodoro_to_csv(self, isfile_mock, mock_open, input_mock, run_pomodoro_mock):
         # Define the behavior of the mocks
-        input_mock.side_effect = ['test_task', '25', '5']
+        input_mock.side_effect = ['test_task', '4', '25', '5', '15']
         run_pomodoro_mock.return_value = None
         isfile_mock.return_value = False  # mock isfile should return False, to simulate non-existent csv file (first pomodoro) 
 

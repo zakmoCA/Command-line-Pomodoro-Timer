@@ -1,11 +1,24 @@
 import time
+from playsound import playsound 
+import os
 
-def run_pomodoro(work_time, break_time):
-    print("Work timer started for", work_time, "minutes")
-    countdown(work_time * 60)
+# Create absolute path for my audio files since my bash script is not in this directory
+AUDIO_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-    print("\nBreak timer started for", break_time, "minutes")
-    countdown(break_time * 60)
+
+def run_pomodoro(cycle_length, work_time, short_break_time, long_break_time):
+    for _ in range(cycle_length):
+      print("Work timer started for", work_time, "minutes")
+      countdown(work_time * 60)
+      playsound(os.path.join(AUDIO_BASE_DIR, 'break-start.wav'))
+
+      print("\nShort break timer started for", short_break_time, "minutes")
+      countdown(short_break_time * 60)
+      playsound(os.path.join(AUDIO_BASE_DIR, 'pomodoro-start.wav'))
+    
+    print("\nLong break timer started for", long_break_time, "minutes")
+    countdown(long_break_time * 60)
+    playsound(os.path.join(AUDIO_BASE_DIR, 'end-of-long-break.wav'))
 
 def countdown(t):
     while t:
