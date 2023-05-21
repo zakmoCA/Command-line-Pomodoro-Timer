@@ -4,9 +4,9 @@ from run_pomodoro import run_pomodoro
 from write_to_csv import write_to_csv
 
 
-
-pomodoros = []
-tasks = []
+# Store Pomodoro and task data
+pomodoros = [] # List containing dictionary of data for each pomodoro
+tasks = [] # list containing dictionary of task names and list of 'pomodoro' dictionaries
 
 
 def start():

@@ -36,6 +36,25 @@
 
 # Sources
 
+[Playsound library](https://pypi.org/project/playsound/)
+
+[Python 'datetime' module](https://docs.python.org/3/library/datetime.html)
+
+[Python 'time' module](https://docs.python.org/3/library/time.html)
+
+[Python 'os' module](https://docs.python.org/3/library/os.html)
+
+[Python 'unittest' framework](https://docs.python.org/3/library/unittest.html)
+
+[Python unittest.mock](https://docs.python.org/3/library/unittest.mock.html)
+
+[Understanding patching and mocking](https://medium.com/geekculture/right-way-to-test-mock-and-patch-in-python-b02138fc5040)
+
+[Getting absolute path in Python](https://docs.python.org/3/library/os.path.html)
+
+[Python divmod function](https://www.programiz.com/python-programming/methods/built-in/divmod)
+
+
 
 
 # Style Guide
@@ -311,7 +330,7 @@ If you have Python version 3.11.3 or higher already installed, in your terminal,
 
 Inside this directory, run the following command in order to clone the GitHub Pomodro Application.
 
-    git clone git@github.com:zakmoCA/ZakeriyaMohamed_T1A3.git
+    git clone https://github.com/zakmoCA/ZakeriyaMohamed_T1A3.git
 
 Once the repository has been cloned locally to your machine, enter the following command in the root directory of the repository, it will add the appropriate execute persmissions.
 

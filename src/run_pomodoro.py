@@ -12,18 +12,20 @@ def run_pomodoro(cycle_length, work_time, short_break_time, long_break_time):
     # This is repeated until we reach pomodoro #cycle length, then long break timer is started
     # Each stage is signaled by a unique audio alert
 
-    for _ in range(cycle_length):
-      print("Work timer started for", work_time, "minutes")
-      countdown(work_time * 60) # Run countdown for work time
-      playsound(os.path.join(AUDIO_BASE_DIR, 'break-start.wav')) # Play alert at start of short break
+    for i in range(cycle_length):
+        print("Work timer started for", work_time, "minutes")
+        countdown(work_time * 60) # Run countdown for work time
 
-      print("\nShort break timer started for", short_break_time, "minutes")
-      countdown(short_break_time * 60) # Run countdown for short break time
-      playsound(os.path.join(AUDIO_BASE_DIR, 'pomodoro-start.wav')) # Play alert at start of pomodoro
-    
+        if i < cycle_length - 1:  # Check that it's not the last work period
+            playsound(os.path.join(AUDIO_BASE_DIR, 'break-start.wav')) # Play alert at start of short break
+            print("\nShort break timer started for", short_break_time, "minutes")
+            countdown(short_break_time * 60) # Run countdown for short break time
+            playsound(os.path.join(AUDIO_BASE_DIR, 'pomodoro-start.wav')) # Play alert at start of pomodoro
+      
     print("\nLong break timer started for", long_break_time, "minutes")
-    countdown(long_break_time * 60) # Run countdown for long break time
     playsound(os.path.join(AUDIO_BASE_DIR, 'end-of-long-break.wav')) # Play alert at start of long break (last pomodoro)
+    countdown(long_break_time * 60) # Run countdown for long break time
+    playsound(os.path.join(AUDIO_BASE_DIR, 'break-start.wav')) # Signal end of long break, and cycle
 
 def countdown(t):
     #This function takes an amount of time in seconds and counts down to zero
