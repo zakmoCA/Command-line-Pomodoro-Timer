@@ -46,13 +46,16 @@ def start():
         # WRITING TO CSV
         write_to_csv(task_name, pomodoro)
 
-        # Start the timer
+        # Call the run_pomodoro function below starts the pomodoro
+        # Number of pomodoros it runs will be equal to cycle length, with the long break after the nth (cycle_length) pomodoro
+        # Start of work work time, short break, and long break will be signalled by unique alert sounds
         run_pomodoro(cycle_length, work_time, short_break_time, long_break_time)
 
         
     
     except KeyboardInterrupt:
+        # If the user interrupts the program, print message below and record the current pomodoro to CSV file
         print("\nInterrupted. Writing current pomodoro to file...")
-        # Now, write the pomodoro to a CSV file
+        # Writing pomodoro to CSV file
         write_to_csv(task_name, pomodoro)
 
