@@ -329,7 +329,11 @@ Inside this directory, run the following command in order to clone the GitHub Po
 
     git clone https://github.com/zakmoCA/ZakeriyaMohamed_T1A3.git
 
-Once the repository has been cloned locally to your machine, enter the following command in the root directory of the repository, it will add the appropriate execute persmissions.
+Once the repository has been cloned locally to your machine, change to the root directory as follows.
+
+    cd ZakeriyaMohamed_T1A3
+
+Now that you are in the root directory, enter the following command, it will add the appropriate execute persmissions.
 
     chmod +x setup.sh
 
