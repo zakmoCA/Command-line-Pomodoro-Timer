@@ -2,7 +2,7 @@ from pomodoro_length import pomodoro_length
 import datetime
 from run_pomodoro import run_pomodoro
 from write_to_csv import write_to_csv
-from data_visualisation import visualize_pomodoros
+
 
 
 # Store Pomodoro and task data
