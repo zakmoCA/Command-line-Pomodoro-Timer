@@ -48,7 +48,7 @@ def start():
         write_to_csv(task_name, pomodoro)
 
         # Visualise data
-        visualize_pomodoros()
+        #visualize_pomodoros()
 
         # Call the run_pomodoro function below starts the pomodoro
         # Number of pomodoros it runs will be equal to cycle length, with the long break after the nth (cycle_length) pomodoro
@@ -63,5 +63,5 @@ def start():
         # Writing pomodoro to CSV file
         write_to_csv(task_name, pomodoro)
         # Visualise data
-        visualize_pomodoros()
+        #visualize_pomodoros()
 
