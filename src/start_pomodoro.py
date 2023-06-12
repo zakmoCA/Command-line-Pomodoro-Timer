@@ -2,6 +2,7 @@ from pomodoro_length import pomodoro_length
 import datetime
 from run_pomodoro import run_pomodoro
 from write_to_csv import write_to_csv
+from data_visualisation import visualize_pomodoros
 
 
 # Store Pomodoro and task data
@@ -46,6 +47,9 @@ def start():
         # WRITING TO CSV
         write_to_csv(task_name, pomodoro)
 
+        # Visualise data
+        visualize_pomodoros()
+
         # Call the run_pomodoro function below starts the pomodoro
         # Number of pomodoros it runs will be equal to cycle length, with the long break after the nth (cycle_length) pomodoro
         # Start of work work time, short break, and long break will be signalled by unique alert sounds
@@ -58,4 +62,6 @@ def start():
         print("\nInterrupted. Writing current pomodoro to file...")
         # Writing pomodoro to CSV file
         write_to_csv(task_name, pomodoro)
+        # Visualise data
+        visualize_pomodoros()
 
