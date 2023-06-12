@@ -16,11 +16,8 @@ python3 -m venv venv
 # Activate the virtual environment
 source venv/bin/activate
 
-# Installing wheel
-pip install wheel
-
-# Installing dependencies with PEP 517 to avoid playsound issues
-pip install --use-pep517 -r requirements.txt
+# Installing dependencies
+pip install -r requirements.txt
 
 # Run application
 python3 src/main.py
