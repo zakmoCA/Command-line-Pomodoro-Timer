@@ -1,3 +1,10 @@
+# 15/11/23: Refactor
+
+Currently have a pull-request open for this project where I will:
+- refactor to improve code quality
+- rewrite the project in TypeScript
+Mainly refactoring as this was one of my first projects and refactoring will be a great exercise in [building essential dev skills](https://www.youtube.com/watch?v=PGjrn9Ci2aY). Rewriting in TypeScript as am currently learning and building with TypeScript.
+
 # Help Documentation
 ## System And Hardware Requirements
 This is a very simple application, with any computer or laptop running Python 3 being able to run the application. Python 3 needs to be installed if not already.
