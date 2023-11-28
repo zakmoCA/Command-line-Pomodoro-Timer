@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, mock_open
-from p_length_refactor import user_preferences
-from s_pomo_refactor import start
+from pomodoro_length import user_preferences
+from start_pomodoro import start
 
 
 class TestPomodoroApp(unittest.TestCase):
@@ -20,7 +20,7 @@ class TestPomodoroApp(unittest.TestCase):
       > the headers and pomodoro are written correctly
       > the string that the write method is called with starts with the task name, and has the structure we expect
     """
-    @patch('s_pomo_refactor.run_pomodoro')
+    @patch('start_pomodoro.run_pomodoro')
     @patch('builtins.input')
     @patch('builtins.open', new_callable=mock_open)
     @patch('os.path.isfile')

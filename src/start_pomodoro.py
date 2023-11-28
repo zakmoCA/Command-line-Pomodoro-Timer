@@ -1,6 +1,6 @@
-from p_length_refactor import user_preferences
+from pomodoro_length import user_preferences
 import datetime
-from run_pomodoro_refactor import run_pomodoro
+from run_pomodoro import run_pomodoro
 from write_to_csv import write_to_csv
 
 

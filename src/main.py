@@ -1,4 +1,4 @@
-from s_pomo_refactor import start
+from start_pomodoro import start
 
 # Run application
 start()
