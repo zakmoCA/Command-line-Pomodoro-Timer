@@ -1,17 +1,9 @@
-# 15/11/23: Refactor
+# Refactor
 
 Currently have a pull-request open for this project where I will:
 - refactor to improve code quality
 - rewrite the project in TypeScript
 Mainly refactoring as this was one of my first projects and refactoring will be a great exercise in [building essential dev skills](https://www.youtube.com/watch?v=PGjrn9Ci2aY). Rewriting in TypeScript as am currently learning and building with TypeScript.
-
-## Refactor Objectives
-
-- no global variables, it's still bad practice even for my small personal projects. I should write my personal projects the way I would write in a production codebase, especially since I am yet to learn all the best practices and design patterns (you must first [learn the rules before you can disregard them](https://thoughtbot.com/blog/chestertons-fence#:~:text=Chesterton's%20Fence%20is%20a%20principle,why%20it%20was%20put%20up.)). Keep things [simple](https://grugbrain.dev/).
-- modularisation and single responsibility
-- more robust error handling
-- DRY
-- more efficient data handling (opportunity to begin data structures and algorithms journey)
 
 # Help Documentation
 ## System And Hardware Requirements
