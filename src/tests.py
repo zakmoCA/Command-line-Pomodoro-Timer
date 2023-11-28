@@ -9,10 +9,10 @@ class TestPomodoroApp(unittest.TestCase):
     def test_pomodoro_length(self):
         with patch('builtins.input', side_effect=['4', '25', '5', '15']):
             cycle_length, work_time, short_break, long_break = user_preferences()
-            self.assertEqual(cycle_length, 4) # checking if cycle_length is correct
-            self.assertEqual(work_time, 25) # checking if work_time is correct
-            self.assertEqual(short_break, 5) # checking if short_break_time is correct
-            self.assertEqual(long_break, 15) # checking if long_break_time is correct
+            self.assertEqual(cycle_length, 4) 
+            self.assertEqual(work_time, 25) 
+            self.assertEqual(short_break, 5) 
+            self.assertEqual(long_break, 15) 
     """"
     My second test checks that my start funciton correctly writes something to csv.
     I can't check the exact timestamps are 'corect' because assert_called_once_with doesn't support regex
@@ -28,10 +28,9 @@ class TestPomodoroApp(unittest.TestCase):
         # Define the behavior of the mocks
         input_mock.side_effect = ['test_task', '4', '25', '5', '15']
         run_pomodoro_mock.return_value = None
-        isfile_mock.return_value = False  # mock isfile should return False, to simulate non-existent csv file (first pomodoro) 
+        isfile_mock.return_value = False  # mock isfile should return False, 
+        # this is to simulate a non-existent csv file, which is the case for the first pomodoro
 
-
-        # Call the function to test
         start()
 
         # Get all calls to write
@@ -39,7 +38,8 @@ class TestPomodoroApp(unittest.TestCase):
 
         # The first call should be writing the headers
         call_args = write_calls[0][0][0]
-        # Check that first call writes headers, or statement for checking newline characters in unix-based systems vs windows
+        # Check that first call writes headers
+        # The OR statement is for checking newline characters in unix-based systems and windows
         self.assertTrue(call_args == 'Task Name,Start Time,End Time,Duration\n' or call_args == 'Task Name,Start Time,End Time,Duration\r\n')
 
         # The second call should be writing the pomodoro
