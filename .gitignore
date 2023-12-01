@@ -3,3 +3,4 @@ venv/
 src/pomodoros.csv
 src/data_visualisation.py
 pomodoros.csv
+*
