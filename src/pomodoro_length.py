@@ -14,10 +14,10 @@ class Pomodoro:
 
 
     def user_preferences(self):
-        self.cycle_length = self.get_cycle_length() 
-        self.work_time = self.get_work_time()
-        self.short_break = self.get_short_break_time()
-        self.long_break = self.get_long_break_time()
+        self.cycle_length = self._get_cycle_length() 
+        self.work_time = self._get_work_time()
+        self.short_break = self._get_short_break_time()
+        self.long_break = self._get_long_break_time()
 
     #--------- PRIVATE-------------
 
