@@ -1,14 +1,18 @@
 import unittest
 from unittest.mock import patch, mock_open
-from pomodoro_length import user_preferences
-from start_pomodoro import start
+from pomodoro_length import Pomodoro
+from start_pomodoro import StartPomodoro
+from run_pomodoro import Timer
 
 
 class TestPomodoroApp(unittest.TestCase):
+    
     # test that my pomodoro_length function correctly handles user input
     def test_pomodoro_length(self):
+        pomodoro = Pomodoro()
+
         with patch('builtins.input', side_effect=['4', '25', '5', '15']):
-            cycle_length, work_time, short_break, long_break = user_preferences()
+            cycle_length, work_time, short_break, long_break = pomodoro.user_preferences()
             self.assertEqual(cycle_length, 4) 
             self.assertEqual(work_time, 25) 
             self.assertEqual(short_break, 5) 
@@ -20,7 +24,7 @@ class TestPomodoroApp(unittest.TestCase):
       > the headers and pomodoro are written correctly
       > the string that the write method is called with starts with the task name, and has the structure we expect
     """
-    @patch('start_pomodoro.run_pomodoro')
+    @patch('start_pomodoro.Timer.run_pomodoro')
     @patch('builtins.input')
     @patch('builtins.open', new_callable=mock_open)
     @patch('os.path.isfile')
@@ -30,8 +34,8 @@ class TestPomodoroApp(unittest.TestCase):
         run_pomodoro_mock.return_value = None
         isfile_mock.return_value = False  # mock isfile should return False, 
         # this is to simulate a non-existent csv file, which is the case for the first pomodoro
-
-        start()
+        start_pomodoro = StartPomodoro()
+        start_pomodoro.start()
 
         # Get all calls to write
         write_calls = mock_open().write.call_args_list
