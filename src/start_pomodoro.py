@@ -28,11 +28,11 @@ class StartPomodoro:
                 'duration': work_time,
                 'task': task_name,
             }
-            pomodoros.append(pomodoro)
+            self.pomodoros.append(pomodoro)
 
             # if the task already exists append pomodoro to task
             task_exists = False
-            for task in tasks:
+            for task in self.tasks:
                 if task['name'] == task_name:
                     task['pomodoros'].append(pomodoro)
                     task_exists = True
@@ -43,7 +43,7 @@ class StartPomodoro:
                     'name': task_name,
                     'pomodoros': [pomodoro],
                 }
-                tasks.append(task)
+                self.tasks.append(task)
             
             write_to_csv(task_name, pomodoro)
 
