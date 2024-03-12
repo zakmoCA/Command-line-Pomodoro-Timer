@@ -1,11 +1,13 @@
-# Help Documentation
-## System And Hardware Requirements
-This is a very simple application, with any computer or laptop running Python 3 being able to run the application. Python 3 needs to be installed if not already.
+# README
+
+This was an assessment I built during my Coder Academy course fullstack web-development course in 2023. It is based on 
+the [Pomodoro technique](https://en.wikipedia.org/wiki/Pomodoro_Technique), a time-management technique which breaks work 
+into intervals (usually of 25 minutes) seperated by short breaks, and a long break after a set number of intervals.
 
 ## Installation Steps
 
 ### Python Version
-The first step is to check which python version, if any, is on your system. Many operating systems have at least Python 2 installed, but this application requires a Python 3 version of 3.11.3 and higher. This can be checked by opening the Terminal (Command Line) and typing the following command:
+This application requires a Python 3 version of 3.11.3 and higher. This can be checked by entering the following command in your terminal (command-line):
 
     python3 --version
 
@@ -23,9 +25,6 @@ Open up Homebrew in your terminal and enter the following command:
 
 #### Windows
 Visit official [Python website](https://www.python.org/downloads/)
-
-
-
 
 If you have Python version 3.11.3 or higher already installed, in your terminal, navigate to the 
 directory you would like to clone this repo into.
