@@ -1,17 +1,6 @@
-# Refactor
-
-Currently have a pull-request open for this project where I will:
-- refactor to improve code quality
-- rewrite the project in TypeScript
-Mainly refactoring as this was one of my first projects and refactoring will be a great exercise in [building essential dev skills](https://www.youtube.com/watch?v=PGjrn9Ci2aY). Rewriting in TypeScript as am currently learning and building with TypeScript.
-
 # Help Documentation
 ## System And Hardware Requirements
 This is a very simple application, with any computer or laptop running Python 3 being able to run the application. Python 3 needs to be installed if not already.
-
-## Dependencies
-
-A list of dependencies can be found in the file requirements.txt.
 
 ## Installation Steps
 
@@ -38,15 +27,14 @@ Visit official [Python website](https://www.python.org/downloads/)
 
 
 
-If you have Python version 3.11.3 or higher already installed, in your terminal, make a new directory in a location of your choosing and name of your choosing, I am calling mine 'PomodoroApp'.
-
-    mkdir PomodoroApp
+If you have Python version 3.11.3 or higher already installed, in your terminal, navigate to the 
+directory you would like to clone this repo into.
 
 Inside this directory, run the following command in order to clone the GitHub Pomodro Application.
 
     git clone https://github.com/zakmoCA/CLI-Pomodoro.git
 
-Once the repository has been cloned locally to your machine, change to the root directory as follows.
+Once the repository has been cloned locally to your machine, navigate to the repo's root.
 
     cd CLI-Pomodoro
 
@@ -54,11 +42,11 @@ Now that you are in the root directory, enter the following command, it will add
 
     chmod +x setup.sh
 
-Finally, to run the application, proceed by entering the following command.
+Finally, to run the application, enter the following command.
 
     ./setup.sh
 
-To exit the pomodoro early simply use 'Ctrl/Cmd' + 'C'. The data will still be written to the csv file.
+
 
 
 
